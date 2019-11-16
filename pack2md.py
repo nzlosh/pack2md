@@ -42,8 +42,8 @@ def fetch_yaml(dirname, display):
 
 
 def render_document(template, data, filename):
-    if not os.path.exists(f"{filename}.bak"):
-        os.replace(f"{filename}", f"{filename}.bak")
+    if not os.path.exists(f"{filename}.bak") and os.path.exists(f"{filename}"):
+            os.replace(f"{filename}", f"{filename}.bak")
     with open(filename, "w") as f:
         f.write(template.render(data))
 
