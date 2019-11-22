@@ -35,7 +35,7 @@ def fetch_yaml(dirname, display):
     items = {}
     if os.path.exists(dirname):
         for e in os.listdir(dirname):
-            if e.find(".yaml") != -1:
+            if e.endswith(".yaml"):
                 with open("{}/{}".format(dirname, e), "r") as f:
                     items[e] = yaml.load(f, Loader=yaml.FullLoader)
     return items

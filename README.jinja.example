@@ -54,3 +54,4 @@ _{{ value.description }}_
 There are no sensors available for this pack.
 {% endif %}
 
+<sub>Documentation generated using [pack2md](https://github.com/nzlosh/pack2md)</sub>
