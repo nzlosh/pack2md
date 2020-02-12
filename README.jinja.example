@@ -3,6 +3,10 @@
 > {{ pack["pack.yaml"].description }}
 {{ pack["pack.yaml"].author }} <{{ pack["pack.yaml"].email }}>
 
+### Contributors
+{% for contributor in pack["pack.yaml"].contributors -%}
+  - {{ contributor }}
+{% endfor %}
 
 ## Configuration
 
