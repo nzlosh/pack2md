@@ -9,7 +9,7 @@ populate and produce a README file in markdown format.
 1. Create a virtualenv.
 1. Install required modules.
 1. Edit `README.jinja` to fit the packs needs (it should be located in the pack's root directory).
-1. Run `pack2dm.py <pack_path>`.
+1. Run `pack2md.py <pack_path>`.
 
 ## Example
 
