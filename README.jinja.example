@@ -8,6 +8,7 @@
   - {{ contributor }}
 {% endfor %}
 
+{% if "pack.schema.yaml" in pack -%}
 ## Configuration
 
 The following options are required to be configured for the pack to work correctly.
@@ -16,7 +17,8 @@ The following options are required to be configured for the pack to work correct
 |---|---|---|---|---|
 {% for key, value in pack["config.schema.yaml"].items() -%}
 | `{{ key }}` | {{ value.type }} | {{ value.required }} | {{ value.secret }} | {{ value.description }} |
-{% endfor %}
+{% endfor -%}
+{% endif -%}
 
 ## Actions
 
