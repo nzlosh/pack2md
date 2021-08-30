@@ -1,4 +1,4 @@
-# {{ pack["pack.yaml"].name }} integration pack v{{ pack["pack.yaml"].version }}
+# {{ pack["pack.yaml"].name }} integration pack
 
 > {{ pack["pack.yaml"].description }}
 {{ pack["pack.yaml"].author }} <{{ pack["pack.yaml"].email }}>
