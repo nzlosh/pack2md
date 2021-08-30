@@ -8,7 +8,7 @@
   - {{ contributor }}
 {% endfor %}
 
-{% if "config.schema.yaml" in pack -%}
+{% if pack and pack["config.schema.yaml"] -%}
 ## Configuration
 
 The following options are required to be configured for the pack to work correctly.
