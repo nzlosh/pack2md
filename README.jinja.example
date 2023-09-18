@@ -1,12 +1,7 @@
-# {{ pack["pack.yaml"].name }} integration pack
+# {{ pack["pack.yaml"].name | title }} integration pack
 
 > {{ pack["pack.yaml"].description }}
 {{ pack["pack.yaml"].author }} <{{ pack["pack.yaml"].email }}>
-
-### Contributors
-{% for contributor in pack["pack.yaml"].contributors -%}
-  - {{ contributor }}
-{% endfor %}
 
 {% if pack and pack["config.schema.yaml"] -%}
 ## Configuration
@@ -59,5 +54,10 @@ _{{ value.description }}_
 {% else %}
 There are no sensors available for this pack.
 {% endif %}
+
+### Contributors
+{% for contributor in pack["pack.yaml"].contributors -%}
+  - {{ contributor }}
+{% endfor %}
 
 <sub>Documentation generated using [pack2md](https://github.com/nzlosh/pack2md)</sub>
