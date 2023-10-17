@@ -31,19 +31,20 @@ def fetch_template(template="README.jinja", template_dir="."):
 
 
 def fetch_yaml(dirname, display):
-    print("Fetching {} ...".format(display))
+    print(f"Fetching {display} ... ", end="")
     items = {}
     if os.path.exists(dirname):
-        for e in os.listdir(dirname):
-            if e.endswith(".yaml"):
-                with open("{}/{}".format(dirname, e), "r") as f:
-                    items[e] = yaml.load(f, Loader=yaml.FullLoader)
+        filenames = [filename for filename in os.listdir(dirname) if filename.endswith(".yaml")]
+        print(f"{len(filenames)} file(s) found.")
+        for filename in filenames:
+            with open(f"{dirname}/{filename}", "r") as fhandle:
+                items[filename] = yaml.load(fhandle, Loader=yaml.FullLoader)
     return items
 
 
 def render_document(template, data, filename):
     if not os.path.exists(f"{filename}.bak") and os.path.exists(f"{filename}"):
-            os.replace(f"{filename}", f"{filename}.bak")
+        os.replace(f"{filename}", f"{filename}.bak")
     with open(filename, "w") as f:
         f.write(template.render(data))
 
@@ -59,9 +60,9 @@ if __name__ == "__main__":
             {
                 "pack": fetch_yaml(args.pack_path, "pack meta"),
                 "actions": fetch_yaml(f"{args.pack_path}/actions", "action meta"),
-                "sensors": fetch_yaml(f"{args.pack_path}/sensors", "sensor meta")
+                "sensors": fetch_yaml(f"{args.pack_path}/sensors", "sensor meta"),
             },
-            f"{args.pack_path}/README.md"
+            f"{args.pack_path}/README.md",
         )
     else:
         print("'{}' doesn't exist.".format(args.pack_path))

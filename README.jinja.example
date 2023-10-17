@@ -26,7 +26,7 @@ _{{ value.description }}_
 
 | Parameter | Type | Required | Secret | Description |
 |---|---|---|---|---|
-{% for p_key, p_value in value.parameters.items() -%}
+{% for p_key, p_value in value.get("parameters", {}).items() -%}
 | `{{ p_key }}` | {{ p_value.type | default("n/a") }} | {{ p_value.required | default("default") }} | {{ p_value.secret | default("default") }} | _{{ p_value.description | default("Unavailable") }}_ |
 {% endfor -%}
 
